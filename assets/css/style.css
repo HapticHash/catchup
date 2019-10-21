@@ -57,14 +57,16 @@ body {
     color: #4F4F4F;
 }
 
-
-#rect {
-    webkit-mask: url('../images/rect.svg') no-repeat bottom right;
-    animation: green-rectangle-anim 40s infinite linear;
-    background-color: var(--navi-shape-green-color);
-    bottom: 8%;
+#grey-rounded-rectangle {
+    -webkit-mask: url('/assets/images/rect2.svg') no-repeat top left;
+    animation: grey-rounded-rectangle-anim 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    background-color: rgb(241, 243, 244);
     content: ' ';
-    height: 371px;
-    right: -255px;
-    width: 371px;
+    height: 132px;
+    left: -42px;
+    top: 45%;
+    width: 132px;
 }
+
+
+
