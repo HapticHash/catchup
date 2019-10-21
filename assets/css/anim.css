@@ -1,0 +1,76 @@
+@keyframes red-triangle-anim {
+    50% {
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+              transform: translateY(25px) rotate(-53deg);
+    }
+    
+}
+
+@keyframes grey-rounded-rectangle-anim {
+    65% {
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+              transform: translateY(-48px) rotate(-75deg);
+    }
+    
+}
+
+@keyframes blue-circle-anim-x {
+    50% {
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+              transform: translateX(44px);
+    }
+    
+    }
+    
+    @keyframes blue-circle-anim-y {
+    50% {
+      animation-timing-function: cubic-bezier(0.55, 0, 0.2, 1);
+              transform: translateY(17px);
+    }
+    
+}
+
+@keyframes green-rectangle-anim {
+    100% {
+      transform: rotate(360deg);
+    }
+    
+}
+
+#red-triangle {
+    -webkit-mask: url('/assets/images/triangle.svg') no-repeat bottom left;
+    animation: red-triangle-anim 9.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    background-color: rgb(233, 66, 53);
+    bottom: 15%;
+    content: ' '; 
+    height: 74px;
+    left: 12%;
+    width: 65px;
+}
+
+#blue-circle-container {
+    animation: blue-circle-anim-x 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+          left: calc(13% - 50px);  
+          top: calc(18% - 26px);
+}
+  
+#blue-circle-container::after {
+        -webkit-mask: url('/assets/images/oval.svg') no-repeat top left;
+        animation: blue-circle-anim-y 9s cubic-bezier(0.25, 0, 0.2, 1) infinite;
+        background-color: rgb(26, 115, 232);
+        content: ' '; 
+        height: 100px;
+        position: absolute;
+        width: 100px;
+}
+
+#green-rectangle {
+    -webkit-mask: url('/assets/images/rect.svg') no-repeat bottom right;
+          animation: green-rectangle-anim 40s infinite linear;
+          background-color: rgb(49, 167, 83);
+          bottom: 8%;
+          content: ' '; 
+          height: 371px;
+          right: -255px;
+          width: 371px;
+}
