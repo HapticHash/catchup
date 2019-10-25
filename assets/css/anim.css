@@ -1,4 +1,4 @@
-@keyframes red-triangle-anim {
+@keyframes triangle-anim {
     50% {
       animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
               transform: translateY(25px) rotate(-53deg);
@@ -6,7 +6,7 @@
     
 }
 
-@keyframes grey-rounded-rectangle-anim {
+@keyframes rounded-rectangle-anim {
     65% {
       animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
               transform: translateY(-48px) rotate(-75deg);
@@ -14,7 +14,15 @@
     
 }
 
-@keyframes blue-circle-anim-x {
+@keyframes rounded-rectangle2-anim {
+  40% {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(40px) rotate(-1deg);
+  }
+  
+}
+
+@keyframes circle-anim-x {
     50% {
       animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
               transform: translateX(44px);
@@ -22,7 +30,7 @@
     
     }
     
-    @keyframes blue-circle-anim-y {
+    @keyframes circle-anim-y {
     50% {
       animation-timing-function: cubic-bezier(0.55, 0, 0.2, 1);
               transform: translateY(17px);
@@ -30,17 +38,16 @@
     
 }
 
-@keyframes green-rectangle-anim {
+@keyframes square-anim {
     100% {
       transform: rotate(360deg);
     }
     
 }
 
-#red-triangle {
+#triangle {
     -webkit-mask: url('/assets/images/triangle.svg') no-repeat bottom left;
-    animation: red-triangle-anim 9.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    background-color: rgb(233, 66, 53);
+    animation: triangle-anim 9.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     bottom: 15%;
     content: ' '; 
     height: 74px;
@@ -48,15 +55,15 @@
     width: 65px;
 }
 
-#blue-circle-container {
-    animation: blue-circle-anim-x 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+#circle {
+    animation: circle-anim-x 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
           left: calc(13% - 50px);  
           top: calc(18% - 26px);
 }
   
-#blue-circle-container::after {
+#circle::after {
         -webkit-mask: url('/assets/images/oval.svg') no-repeat top left;
-        animation: blue-circle-anim-y 9s cubic-bezier(0.25, 0, 0.2, 1) infinite;
+        animation: circle-anim-y 9s cubic-bezier(0.25, 0, 0.2, 1) infinite;
         background-color: rgb(26, 115, 232);
         content: ' '; 
         height: 100px;
@@ -64,13 +71,36 @@
         width: 100px;
 }
 
-#green-rectangle {
+#square {
     -webkit-mask: url('/assets/images/rect.svg') no-repeat bottom right;
-          animation: green-rectangle-anim 40s infinite linear;
-          background-color: rgb(49, 167, 83);
+          animation: square-anim 40s infinite linear;
+          background-color: rgb(233, 66, 53);
           bottom: 8%;
           content: ' '; 
           height: 371px;
           right: -255px;
           width: 371px;
+}
+
+#rounded-rectangle {
+    -webkit-mask: url('/assets/images/rect2.svg') no-repeat top left;
+          animation: rounded-rectangle-anim 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+          background-color: rgb(241, 243, 244);
+          content: ' ';
+          height: 132px;
+          left: -42px;
+          top: 45%;
+          width: 132px;
+}
+
+#rounded-rectangle2 {
+  -webkit-mask: url('/assets/images/rect3.svg') no-repeat top left;
+        animation: rounded-rectangle2-anim 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        background-color: rgb(241, 243, 244);
+        content: ' ';
+        height: 300px;
+        left: -42px;
+        top: 45%;
+        width: 300px;
+        transform: rotate(60deg);
 }

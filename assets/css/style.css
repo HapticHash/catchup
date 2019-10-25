@@ -23,7 +23,13 @@ body {
     width: 100vw;
 }
 
-
+.front, .back {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0%;
+    overflow: hidden;
+}
 
 .title {
     font-family: 'Product Sans Bold';
@@ -41,7 +47,7 @@ body {
 }
 
 .btn {
-    padding: 2vh 1vw;
+    padding: 1.5vh 2vw;
     margin: 0 auto;
     background-color: var(--main-blue);
     -webkit-box-shadow: 8px 8px 10px rgba(27,116,232,0.26);
@@ -55,17 +61,6 @@ body {
     font-size: 1rem;
     width: 58%;
     color: #4F4F4F;
-}
-
-#grey-rounded-rectangle {
-    -webkit-mask: url('/assets/images/rect2.svg') no-repeat top left;
-    animation: grey-rounded-rectangle-anim 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    background-color: rgb(241, 243, 244);
-    content: ' ';
-    height: 132px;
-    left: -42px;
-    top: 45%;
-    width: 132px;
 }
 
 
