@@ -14,6 +14,14 @@
     
 }
 
+@keyframes rounded-rectangle2-anim {
+  40% {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(40px) rotate(-1deg);
+  }
+  
+}
+
 @keyframes circle-anim-x {
     50% {
       animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -75,12 +83,24 @@
 }
 
 #rounded-rectangle {
-  -webkit-mask: url('/assets/images/rect2.svg') no-repeat top left;
-  animation: rounded-rectangle-anim 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  background-color: rgb(241, 243, 244);
-  content: ' ';
-  height: 132px;
-  left: -42px;
-  top: 45%;
-  width: 132px;
+    -webkit-mask: url('/assets/images/rect2.svg') no-repeat top left;
+          animation: rounded-rectangle-anim 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+          background-color: rgb(241, 243, 244);
+          content: ' ';
+          height: 132px;
+          left: -42px;
+          top: 45%;
+          width: 132px;
+}
+
+#rounded-rectangle2 {
+  -webkit-mask: url('/assets/images/rect3.svg') no-repeat top left;
+        animation: rounded-rectangle2-anim 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        background-color: rgb(241, 243, 244);
+        content: ' ';
+        height: 300px;
+        left: -42px;
+        top: 45%;
+        width: 300px;
+        transform: rotate(60deg);
 }
