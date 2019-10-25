@@ -57,16 +57,5 @@ body {
     color: #4F4F4F;
 }
 
-#grey-rounded-rectangle {
-    -webkit-mask: url('/assets/images/rect2.svg') no-repeat top left;
-    animation: grey-rounded-rectangle-anim 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    background-color: rgb(241, 243, 244);
-    content: ' ';
-    height: 132px;
-    left: -42px;
-    top: 45%;
-    width: 132px;
-}
-
 
 
