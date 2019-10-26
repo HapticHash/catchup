@@ -6,6 +6,14 @@
     
 }
 
+@keyframes triangle2-anim {
+  50% {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(-30px) rotate(93deg);
+  }
+  
+}
+
 @keyframes rounded-rectangle-anim {
     65% {
       animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -39,8 +47,9 @@
 }
 
 @keyframes square-anim {
-    100% {
-      transform: rotate(360deg);
+    35% {
+      animation-timing-function: cubic-bezier(0.2, 0, 0.8, 1);
+              transform: translateY(20px) rotate(55deg);
     }
     
 }
@@ -48,17 +57,35 @@
 #triangle {
     -webkit-mask: url('/assets/images/triangle.svg') no-repeat bottom left;
     animation: triangle-anim 9.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    bottom: 15%;
     content: ' '; 
     height: 74px;
-    left: 12%;
     width: 65px;
+    left: 12%;
+    bottom: 15%;
+    float: right;
+    margin-right: 20vw;
+    background-color: rgb(250, 207, 76);
+}
+
+#triangle2 {
+    -webkit-mask: url('/assets/images/triangle.svg') no-repeat bottom left;
+      animation: triangle2-anim 9.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      content: ' '; 
+      height: 74px;
+      width: 65px;
+      left: 12%;
+      bottom: 15%;
+      background-color: rgb(49, 167, 83);
+      margin-top: 50vh;
+      margin-left: 20vw;
 }
 
 #circle {
     animation: circle-anim-x 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
           left: calc(13% - 50px);  
           top: calc(18% - 26px);
+          margin-left: 20vw;
+          margin-top: -10vh;
 }
   
 #circle::after {
@@ -67,19 +94,22 @@
         background-color: rgb(26, 115, 232);
         content: ' '; 
         height: 100px;
-        position: absolute;
         width: 100px;
+        position: absolute;
 }
 
 #square {
     -webkit-mask: url('/assets/images/rect.svg') no-repeat bottom right;
           animation: square-anim 40s infinite linear;
           background-color: rgb(233, 66, 53);
-          bottom: 8%;
           content: ' '; 
           height: 371px;
-          right: -255px;
           width: 371px;
+          bottom: 8%;
+          right: -255px;
+          float: right;
+          margin-top: 15vh;
+          margin-right: -2vw;
 }
 
 #rounded-rectangle {
@@ -88,9 +118,11 @@
           background-color: rgb(241, 243, 244);
           content: ' ';
           height: 132px;
+          width: 132px;
           left: -42px;
           top: 45%;
-          width: 132px;
+          margin-top: 10vh;
+          margin-left: -4em;
 }
 
 #rounded-rectangle2 {
@@ -103,4 +135,6 @@
         top: 45%;
         width: 300px;
         transform: rotate(60deg);
+        float: right;
+        margin-right: -4em;
 }
