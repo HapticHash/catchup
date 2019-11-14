@@ -55,7 +55,7 @@
 }
 
 #triangle {
-    -webkit-mask: url('/assets/images/triangle.svg') no-repeat bottom left;
+    -webkit-mask: url('../../assets/images/triangle.svg') no-repeat bottom left;
     animation: triangle-anim 9.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     content: ' '; 
     height: 74px;
@@ -68,7 +68,7 @@
 }
 
 #triangle2 {
-    -webkit-mask: url('/assets/images/triangle.svg') no-repeat bottom left;
+    -webkit-mask: url('../../assets/images/triangle.svg') no-repeat bottom left;
       animation: triangle2-anim 9.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
       content: ' '; 
       height: 74px;
@@ -89,7 +89,7 @@
 }
   
 #circle::after {
-        -webkit-mask: url('/assets/images/oval.svg') no-repeat top left;
+        -webkit-mask: url('../../assets/images/oval.svg') no-repeat top left;
         animation: circle-anim-y 9s cubic-bezier(0.25, 0, 0.2, 1) infinite;
         background-color: rgb(26, 115, 232);
         content: ' '; 
@@ -99,7 +99,7 @@
 }
 
 #square {
-    -webkit-mask: url('/assets/images/rect.svg') no-repeat bottom right;
+    -webkit-mask: url('../../assets/images/rect.svg') no-repeat bottom right;
           animation: square-anim 40s infinite linear;
           background-color: rgb(233, 66, 53);
           content: ' '; 
@@ -113,7 +113,7 @@
 }
 
 #rounded-rectangle {
-    -webkit-mask: url('/assets/images/rect2.svg') no-repeat top left;
+    -webkit-mask: url('../../assets/images/rect2.svg') no-repeat top left;
           animation: rounded-rectangle-anim 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
           background-color: rgb(241, 243, 244);
           content: ' ';
@@ -126,7 +126,7 @@
 }
 
 #rounded-rectangle2 {
-  -webkit-mask: url('/assets/images/rect3.svg') no-repeat top left;
+  -webkit-mask: url('../../assets/images/rect3.svg') no-repeat top left;
         animation: rounded-rectangle2-anim 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
         background-color: rgb(241, 243, 244);
         content: ' ';

@@ -1,14 +1,16 @@
-@import '';
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html, body {
+    min-height: 100vh;
+}
+
 :root {
     --main-blue: #1B74E8;
-    --main-red: #E94235;
+    --main-red: #e94235;
     --main-green: #31A753;
     --main-yellow: #FACF4C;
     --main-grey: #F1F3F4;
@@ -23,6 +25,8 @@ body {
     width: 100vw;
 }
 
+/************************************ MAIN PAGE ************************************/
+
 .front, .back {
     position: absolute;
     width: 100%;
@@ -33,26 +37,27 @@ body {
 
 .title {
     font-family: 'Product Sans Bold';
-    font-size: 4rem;
-    margin-top: 1em;
+    font-size: 4.5vw;
+    margin-top: 12vh;
     line-height: 110%;
 }
 
 .desc {
     text-align: center;
     margin: 2em auto;
-    font-size: 1.8rem;
+    font-size: 2vw;
     width: 50%;
     color:  var(--main-dark-grey);
 }
 
-.btn {
+.go {
     padding: 1.5vh 2vw;
     margin: 0 auto;
     background-color: var(--main-blue);
     -webkit-box-shadow: 8px 8px 10px rgba(27,116,232,0.26);
     -moz-box-shadow: 8px 8px 10px rgba(27,116,232,0.26);
     box-shadow: 8px 8px 10px rgba(27,116,232,0.26);
+    border-radius: 10px;
 }
 
 .opt {
@@ -63,5 +68,213 @@ body {
     color: #4F4F4F;
 }
 
+/************************************ Sign up with Google ************************************/
+.back {
+    color: #000;
+}
+
+.greet {
+    font-size: 2.5vw;
+    margin: 2vw 0;
+    font-family: 'Product Sans Bold';
+}
+
+.colorTxt {
+    color: var(--main-blue);
+}
+.avatar {
+    width: 15vw;
+    filter: drop-shadow(3px 3px 5px #bbb);
+}
+.form {
+    margin: 3vw auto 2vw;
+}
+.mapIcon {
+    color: var(--main-red);
+    font-size: 2vw;
+}
+.fa-grin-alt {
+    color: var(--main-green);
+    font-size: 2vw;
+    margin: 5px 0.3em;
+}
+.fa-map-marker-alt {
+    font-size: 2vw;
+    margin: 0 0.15em;
+    color: var(--main-red);
+    vertical-align: middle;
+}
+input, .tail-select {
+    -webkit-box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.089);
+    -moz-box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.089);
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.089);
+    width: 82%;
+}
+.tail-select {
+    margin: 4vh 0;
+    width: 90% !important;
+}
+.label-inner::before {
+    content: 'Select your interests (Max. 5)';
+    text-indent: 0;
+    display: block;
+}
+.conti {
+    padding: 1vh 4vw;
+    margin: 0 auto;
+    background-color: var(--main-blue);
+    -webkit-box-shadow: 8px 8px 10px rgba(27,116,232,0.26);
+    -moz-box-shadow: 8px 8px 10px rgba(27,116,232,0.26);
+    box-shadow: 8px 8px 10px rgba(27,116,232,0.26);
+    border-radius: 10px;
+}
 
 
+/************************ MANAGE YOUR EVENTS PAGE ************************/
+.heading {
+    font-size: 3vw;
+    font-family: 'Product Sans Bold', sans-serif;
+    margin-top: 3vh;
+}
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.imgEvent {
+    vertical-align: middle;
+    width: 40vw;
+}
+.card {
+    margin: 2vh 1.5vw;
+    padding: 1vw;
+    background-color: rgb(247, 247, 247);
+    box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.26);
+}
+.iconEvent {
+    width: 6vw;
+    margin: 1vw auto;
+}
+.eventDesc {
+    line-height: 1.2vw;
+    margin: auto;
+}
+.eventTitle {
+    font-family: 'Product Sans Bold', sans-serif;
+    font-size: 1.8vw;
+}
+.eventDate {
+    font-size: 1.4vw;
+}
+.eventTime {
+    font-size: 1.2vw;
+    margin-top: -3px;
+}
+.optOut {
+    padding: 1.6vh 1.5vw;
+    background-color: var(--main-red);
+    border: none;
+    border-radius: 10px;
+    -webkit-box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.26);
+    box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.26);
+}
+
+/************************************ JOIN PAGE ************************************/
+.joinCheck {
+    margin: 5vh 0;
+    width: 20vw;
+}
+.divider{
+    width: 2vw;
+    height: auto;
+    display: inline-block;
+}
+.joinBtn {
+    padding: 1.6vh 3.3vw;
+    background-color: var(--main-green);
+    border: none;
+    border-radius: 10px;
+    -webkit-box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.26);
+    box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.26);
+}
+
+/************************************ EVENT INFO PAGE ************************************/
+.eventInfo {
+    margin: 3vh 0;
+}
+.material-icons {
+    color: var(--main-red);
+    width: 2vw;
+}
+
+/************************************ CREATE EVENT PAGE ************************************/
+.input-group {
+    display: block;
+    margin: 2vw 0;
+}
+input {
+    border-radius: 5px;
+    padding: 0.7vw;
+    background-color: #f7f7f7;
+    border: 1px solid #aaa;
+}
+.eventName, .eventLoc, .eventDate, .eventTime {
+    margin: 0.5em;
+    font-size: 1.2vw;
+}
+.material-icons {
+    vertical-align: middle;
+    font-size: 2vw;
+}
+.filepond--root {
+    margin: 2vw;
+}
+.filepond--drop-label {
+	color: #4c4e53;
+}
+
+.filepond--label-action {
+	text-decoration-color: #babdc0;
+}
+
+.filepond--panel-root {
+	border-radius: 2em;
+	background-color: #edf0f4;
+	height: 1em;
+}
+
+.filepond--item-panel {
+	background-color: #595e68;
+}
+
+.filepond--drip-blob {
+	background-color: #7f8a9a;
+}
+
+
+/************************************ SETTINGS PAGE ************************************/
+.settingsTopDiv {
+    margin: 5vh 0;
+}
+.name {
+    font-size: 2.5vw;
+    font-weight: 600;
+}
+.email {
+    font-size: 1.3vw;
+    margin: 5px 0;
+}
+.btnGroup {
+    margin: 6vh 0;
+}
+.logoutBtn {
+    padding: 1.6vh 4.3vw;
+    background-color: var(--main-red);
+    border: none;
+    border-radius: 10px;
+    -webkit-box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.26);
+    box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.26);
+}

@@ -1,12 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-      <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <meta name="viewport" http-equiv="Content-Type" content="text/html, charset=utf-8" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      
-      <title>Welcome to CatchUp </title>
-      
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" http-equiv="Content-Type" content="text/html, charset=utf-8" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -15,57 +14,47 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="./assets/css/anim.css">
     <link rel="stylesheet" type="text/css" href="./assets/fonts/style.css">
 
-    <!-- Mobile view CSS-->
-    <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="./assets/css/mobile.css" />
+    <title>Manage your events | CatchUp</title>
 
-
-
-  </head>
-  <body>
-
-   <div class="container-fluid">
-        
-      <div class="front">
-        <div id="triangle"></div>
-        <div id="rounded-rectangle"></div>
-        <div id="rounded-rectangle2"></div>
-        <div id="circle"></div>
-        <div id="square"></div> 
-        <div id="triangle2"></div>
-      </div>
+</head>
+<body>
+    
+    <div class="container-fluid manage">
+        <div class="row">
+            <div class="col text-center"> 
+                <div class="heading"> Manage your Events </div> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 text-center ">
+                <div class="vh-100">
+                    <span class="helper"></span> <img src="./assets/images/manageEvent.png" class="img-fluid imgEvent" alt="manage event illustration">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="row">
+                        <div class="col-2 text-center">
+                            <img src="./assets/images/avatar.png" class="img-fluid iconEvent" alt="event icon">
+                        </div>
+                        <div class="col-7 eventDesc">
+                            <div class="eventTitle"> Event Title </div> <br/>
+                            <div class="eventDate"> Event Date </div> <br/>
+                            <div class="eventTime"> Event Time </div>
+                        </div>
+                        <div class="col-3 my-auto">
+                            <button type="button" class="btn btn-danger optOut">Opt-out</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
-      <div class="back">
-        <div class="row">
-            <div class="col-12 text-center">
-                <div class="title">Welcome to <br/> <span class="txt"> CatchUp </span></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 text-center">
-                <div class="desc"> Join a local group to meet people, try something new, or do more of what you love. </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 text-center">
-                <button type="button" class="btn btn-primary go" onclick="login();">Log in with Google</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 text-center">
-                <div class="opt"> --------- OR --------- </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 text-center">
-                <a href="signup.html" class="btn btn-primary go">Sign up with Google</a>
-            </div>
-        </div>
-      </div>
 
-   </div>
+        </div>
+    </div>
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -80,7 +69,6 @@
     <!-- <script src=”https://apis.google.com/js/platform.js" async defer></script> -->
     <script src = "./assets/js/firebase.js"></script> 
     <script src="./assets/js/google_auth.js"></script>  
-    
     
 </body>
 </html>

@@ -1,0 +1,85 @@
+/************************************ MAIN PAGE ************************************/
+.title {
+    font-size: 9vw;
+    margin-top: 15vh;
+}
+.desc {
+    font-size: 5vw;
+    width: 80%;
+}
+.go {
+    font-size: 3vw;
+    padding: 2vw 4vw;
+    border-radius: 15px;
+}
+.opt {
+    font-size: 3vw;
+}
+#square {
+    margin-top: 20vh;
+    margin-right: -26vw;
+}
+
+/************************************ SIGNUP PAGE ************************************/
+.greet {
+    font-size: 5.5vw;
+    margin: 5vw 0 2vw;
+}
+.avatar {
+    width: 20vw;
+    margin: 5vw 0 3vw;
+}
+.form {
+    margin: 10vw auto 2vw;
+}
+.form-group {
+    width: 90%;
+    display: contents;
+}
+.fa-map-marker-alt {
+    font-size: 2vw;
+}
+.fa-grin-alt {
+    font-size: 3.5vw;
+}
+input {
+    width: 80%;
+    border-radius: 7px;
+    padding: 1.2vw 1vw;
+    font-size: 1.8vw;
+}
+.tail-select{
+    width: 87% !important;
+    margin: 2vh 0;
+}
+.tail-select .select-label{
+    border-radius: 7px;
+    padding: 1vw 1vw;
+    font-size: 1.8vw;
+}
+.conti {
+    margin: 5vw 0 1vw;
+    border-radius: 10px;
+    font-size: 2.2vw;
+    padding: 1.5vw 5vw;
+}
+
+/************************************ CREATE EVENT PAGE ************************************/
+.heading {
+    font-size: 6vw;
+    margin: 6vw 0 3vw;
+}
+.filepond--root {
+    margin: 4vw;
+    font-size: 2.5vw;
+}
+.filepond--drop-label {
+    margin-top: 2vw;
+}
+input {
+    font-size: 1.6vw;
+    margin: 0.8vh 0;
+}
+
+/************************************ MANAGE EVENT PAGE ************************************/
+
