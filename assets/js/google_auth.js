@@ -3,7 +3,7 @@ var provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope('email');
     provider.addScope('https://www.googleapis.com/auth/plus.me');
 
-  function login()
+  function signup()
   {
     firebase.auth().signInWithPopup(provider).then(function(result) {
       // This gives you a Google Access Token. You can use it to access the Google API.
@@ -22,6 +22,25 @@ var provider = new firebase.auth.GoogleAuthProvider();
         console.log(errorMessage);
       // ...
     });
+
+    firebase.auth().onAuthStateChanged(user => {
+      if(user) {
+        window.location = 'signup.html'; //After successful login, user will be redirected to home.html
+        
+      }
+      else {
+        window.location = 'index.html'; // No user is signed in.
+      }
+    });
   }
 
+  function logout() {
+    firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+    window.location = 'index.html';
+
+    }).catch(function(error) {
+    // An error happened.
+    });   
+  }
   

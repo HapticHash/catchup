@@ -45,25 +45,47 @@
                                    <div class="col-12">
                                         <div class="eventName">
                                              <i class="material-icons">calendar_today</i>
-                                             <input id="autocomplete" placeholder="Enter event name" type="text">
+                                             <input id="autocomplete" class="eventNm" placeholder="Enter event name" type="text">
                                         </div>
                                    </div>
                               </div>
-                             
+                             <div class="row">
+                                   <div class="col-12">
+                                        <div class="eventTime">
+                                             <i class="material-icons">emoji_events</i>
+                                             <select class="custom-select drop">
+                                                  <option selected>Select interest category</option>
+                                                  <option value="baseball"> Baseball </option>
+                                                  <option value="cricket"> Cricket </option>
+                                                  <option value="Football"> Football </option>
+                                                  <option value="Hockey"> Hockey </option>
+                                                  <option value="Tennis"> Tennis </option>
+                                             </select>
+                                        </div>
+                                   </div>
+                              </div>
                               <div class="row">
                                    <div class="col-12">
                                         <div class="eventLoc">  
-                                             <i class="fas fa-map-marker-alt"></i>
-                                             <input id="autocomplete" placeholder="Enter address of event" onFocus="geolocate()" type="text">
+                                             <i class="fas fa-map-marker-alt" style="padding-right: 1vw;"></i>
+                                             <input id="autocomplete" class="eventAdd" placeholder="Enter address of event" onFocus="geolocate()" type="text" style="margin: 0;">
                                         </div>
                                    </div>
                               </div>
 
                               <div class="row">
                                    <div class="col-12">
-                                        <div class="eventDate">
+                                        <div class="eventDateSt">
                                              <i class="material-icons">date_range</i>
-                                             <input id="autocomplete" placeholder="Enter event date" type="text">
+                                             <input id="autocomplete"  class="eventStartDate" placeholder="Enter event start date" type="text">
+                                        </div>
+                                   </div>
+                              </div>
+                              <div class="row">
+                                   <div class="col-12">
+                                        <div class="eventDateEnd">
+                                             <i class="material-icons">date_range</i>
+                                             <input id="autocomplete"  class="eventEndDate" placeholder="Enter event end date" type="text">
                                         </div>
                                    </div>
                               </div>
@@ -71,7 +93,7 @@
                                    <div class="col-12">
                                         <div class="eventTime">
                                              <i class="material-icons">access_time</i>
-                                             <input id="autocomplete" placeholder="Enter event time" type="text">
+                                             <input id="autocomplete" class="eventTi" placeholder="Enter event time" type="text">
                                         </div>
                                    </div>
                               </div>
@@ -82,7 +104,15 @@
                               </div>
                               <div class="row">
                                    <div class="col-12">
-                                        <button type="button" class="btn btn-primary go my-4">Create the event</button>
+
+                                        <button type="button" class="btn btn-primary go my-4" 
+                                        onclick="writeUserData($('.eventNm').val(), 
+                                             $('.eventAdd').val(), 
+                                             $('.eventTi').val(), 
+                                             $('.eventStartDate').val(), 
+                                             $('.eventEndDate').val() );" 
+                                        onclick="window.open('/map.html', '_self')">Create the event</button>
+
                                    </div>
                               </div>
                          </div>
@@ -90,7 +120,6 @@
                </div>
           </div>
      </div>
-
      
      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -101,6 +130,9 @@
      <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
  
      <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-database.js"></script>
+
      <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
      
      <!-- <script src=”https://apis.google.com/js/platform.js" async defer></script> -->
@@ -111,7 +143,9 @@
 
      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChEPUdamJ4c7JKozK0g9wKhxLh3RFOpzQ&libraries=places&callback=initAutocomplete" async defer></script>  
 
-     <script src="./assets/js/autoComplete.js"></script>
+
+     <script src="./assets/js/database_config.js"></script>
+
 
      <script>
           const inputElement = document.querySelector('input[type="file"]');

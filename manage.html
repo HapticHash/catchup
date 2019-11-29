@@ -17,7 +17,12 @@
     <link rel="stylesheet" type="text/css" href="./assets/fonts/style.css">
 
     <title>Manage your events | CatchUp</title>
-
+    <style>
+    .eventDate {
+        margin-top: 10px;
+        margin-left: 0.5vw;
+    }
+    </style>
 </head>
 <body>
     
@@ -34,27 +39,70 @@
                 </div>
             </div>
             <div class="col-6">
-                <div class="card">
+                <div class="card" id="c1">
                     <div class="row">
                         <div class="col-2 text-center">
-                            <img src="./assets/images/avatar.png" class="img-fluid iconEvent" alt="event icon">
+                            <img src="./assets/images/cricket.png" class="img-fluid iconEvent" alt="event icon">
                         </div>
                         <div class="col-7 eventDesc">
-                            <div class="eventTitle"> Event Title </div> <br/>
-                            <div class="eventDate"> Event Date </div> <br/>
-                            <div class="eventTime"> Event Time </div>
+                            <div class="eventTitle"> Cricket Meetup </div> 
+                            <div class="eventDate"> 15 Dec. 2019 </div> 
+                            <div class="eventTime"> 1:00pm EDT </div>
+                            <div class="eventAdd"> South Tilston Park, Windsor, ON </div>
                         </div>
                         <div class="col-3 my-auto">
-                            <button type="button" class="btn btn-danger optOut">Opt-out</button>
+                            <input type="button" class="btn btn-danger optOut" onclick="hide('c1')" value="Opt-out"></input>
                         </div>
                     </div>
                 </div>
+
+                <div class="card" id="c2">
+                    <div class="row">
+                        <div class="col-2 text-center">
+                            <img src="./assets/images/hockey.jpg" class="img-fluid iconEvent" alt="event icon">
+                        </div>
+                        <div class="col-7 eventDesc">
+                            <div class="eventTitle"> Hockey Meetup </div> 
+                            <div class="eventDate"> 9 Dec. 2019 </div> 
+                            <div class="eventTime"> 5:00pm EDT </div>
+                            <div class="eventAdd"> Windsor Stadium, Windsor, ON </div>
+                        </div>
+                        <div class="col-3 my-auto">
+                                <input type="button" class="btn btn-danger optOut" onclick="hide('c2')" value="Opt-out"></input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" id="c3">
+                    <div class="row">
+                        <div class="col-2 text-center">
+                            <img src="./assets/images/football.png" class="img-fluid iconEvent" alt="event icon">
+                        </div>
+                        <div class="col-7 eventDesc">
+                            <div class="eventTitle"> Football Meetup </div> 
+                            <div class="eventDate"> 11 Dec. 2019 </div> 
+                            <div class="eventTime"> 3:00pm EDT </div>
+                            <div class="eventAdd"> 688 Bruce Ave, Windsor, Windsor, ON </div>
+                        </div>
+                        <div class="col-3 my-auto">
+                            <input type="button" class="btn btn-danger optOut" onclick="hide('c3')" value="Opt-out"></input>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             
 
         </div>
     </div>
 
+    <script>
+    function hide(ele) {
+        var srcElement = document.getElementById(ele);
+        srcElement.style.display = 'none'; 
+        console.log("done");
+    }
+    </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

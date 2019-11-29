@@ -15,6 +15,7 @@ html, body {
     --main-yellow: #FACF4C;
     --main-grey: #F1F3F4;
     --main-dark-grey: #4F4F4F;
+    --main-black-shade: #333333;
 }
 
 body {
@@ -100,7 +101,6 @@ body {
 }
 .fa-map-marker-alt {
     font-size: 2vw;
-    margin: 0 0.15em;
     color: var(--main-red);
     vertical-align: middle;
 }
@@ -111,11 +111,12 @@ input, .tail-select {
     width: 82%;
 }
 .tail-select {
+    background-color: #ccc;
     margin: 4vh 0;
     width: 90% !important;
 }
 .label-inner::before {
-    content: 'Select your interests (Max. 5)';
+    content: 'Select your interests (Max. 3)';
     text-indent: 0;
     display: block;
 }
@@ -129,7 +130,120 @@ input, .tail-select {
     border-radius: 10px;
 }
 
+/************************ MAP PAGE ************************/
 
+#map {
+    margin: 0;
+    padding: 0;
+    width: 100%; height: 100%;
+    position: absolute;
+    top: 0px;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.popup {
+    width: 35vw;
+    padding: 1vw;
+}
+
+.event-info {
+    display: grid;
+    grid-column-gap: 5px;
+    grid-template-columns: 30% 70%;
+}
+
+img {
+    width: 90%;
+}
+
+.event-details {
+    font-family: 'Product Sans Regular', sans-serif;
+    margin-bottom: 2vh;
+}
+.event-name {
+    font-size: 2vw;
+    font-weight: 800;
+}
+
+.event-date {
+    font-size: 1.5vw;
+    font-weight: 600;
+    color: #9B51E0;
+}
+
+.event-time {
+    font-size: 1.2vw;
+    font-weight: 500;
+}
+
+.event-address {
+    font-size: 1.2vw;
+    font-weight: 500;
+    color: #4F4F4F;
+}
+
+.gm-ui-hover-effect {
+    top: -4px;
+    right: 2px;
+}
+
+.join {
+    display: block;
+    padding: 1.5vh 2.5vw;
+    color: #fff;
+    font-size: 1.1vw;
+    font-weight: 600;
+    margin: 0 auto;
+    background-color: var(--main-blue);
+    -webkit-box-shadow: 8px 8px 10px rgba(27,116,232,0.26);
+    -moz-box-shadow: 8px 8px 10px rgba(27,116,232,0.26);
+    box-shadow: 8px 8px 10px rgba(27,116,232,0.26);
+    border: none;
+    border-radius: 10px;
+}
+
+
+.ham {
+    position: absolute;
+    left: 35px;
+    top: 35px;
+    z-index: 2;
+}
+
+.hamb {
+    padding: 1.6vh 1.2vw;
+    background-color: var(--main-black-shade);
+    border: none;
+    border-radius: 3vw;
+    -webkit-box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.26);
+    box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.26);
+}
+
+.menu {
+    width: 400px;
+}
+
+.filterForm {
+    margin: 2vh 0;
+    color: #fff;
+}
+
+input[type=checkbox], input[type=radio] {
+    box-sizing: border-box;
+    height: 3vh;
+    vertical-align: middle;
+    padding: 0;
+    width: 15%;
+    margin: 1vh;
+    outline: none;
+}
 /************************ MANAGE YOUR EVENTS PAGE ************************/
 .heading {
     font-size: 3vw;
@@ -162,9 +276,10 @@ input, .tail-select {
 .eventTitle {
     font-family: 'Product Sans Bold', sans-serif;
     font-size: 1.8vw;
+    margin: 0.25em;
 }
 .eventDate {
-    font-size: 1.4vw;
+    font-size: 1.4vw !important;
 }
 .eventTime {
     font-size: 1.2vw;
@@ -212,21 +327,33 @@ input, .tail-select {
 /************************************ CREATE EVENT PAGE ************************************/
 .input-group {
     display: block;
-    margin: 2vw 0;
+    margin: 1.5vw 1vw;
 }
 input {
     border-radius: 5px;
     padding: 0.7vw;
     background-color: #f7f7f7;
     border: 1px solid #aaa;
+    width: 90%;
 }
-.eventName, .eventLoc, .eventDate, .eventTime {
+.eventName, .eventLoc, .eventDateSt, .eventDateEnd , .eventTime , .eventAdd{
     margin: 0.5em;
     font-size: 1.2vw;
+}
+.drop {
+    width: 90%;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    border: 1px solid #aaa;
+    outline: none;
+    -webkit-box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.089);
+    -moz-box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.089);
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.089);
 }
 .material-icons {
     vertical-align: middle;
     font-size: 2vw;
+    padding: 0 3vw 0 0;
 }
 .filepond--root {
     margin: 2vw;
@@ -254,6 +381,8 @@ input {
 }
 
 
+
+
 /************************************ SETTINGS PAGE ************************************/
 .settingsTopDiv {
     margin: 5vh 0;
@@ -267,7 +396,7 @@ input {
     margin: 5px 0;
 }
 .btnGroup {
-    margin: 6vh 0;
+    margin: 0 auto;
 }
 .logoutBtn {
     padding: 1.6vh 4.3vw;

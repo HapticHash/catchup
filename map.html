@@ -1,39 +1,401 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" http-equiv="Content-Type" content="text/html, charset=utf-8" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      http-equiv="Content-Type"
+      content="text/html, charset=utf-8"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
+      integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+      crossorigin="anonymous"
+    />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
 
     <!-- Reset CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css"
+    />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="./assets/fonts/style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/fonts/style.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/ham.css" />
 
     <title>Map Page | CatchUp</title>
-</head>
-<body>
-    
-     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-     <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
- 
-     <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
- 
-     <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
-     
-     <!-- <script src=”https://apis.google.com/js/platform.js" async defer></script> -->
-     <script src = "./assets/js/firebase.js"></script> 
-     <script src="./assets/js/google_auth.js"></script>  
-     
-</body>
+  </head>
+  <body onload="clearChk();">
+    <!-- <div class="ham">
+      <button type="button" class="btn btn-dark hamb"> <i class="fas fa-bars"></i> </button> 
+  </div> -->
+
+    <input id="hamburger" type="checkbox" name="hamburger" /><label
+      for="hamburger"
+      style="z-index: 100;"
+    ></label>
+
+    <div class="menu-container">
+      <div class="menu"></div>
+      <div class="links">
+        <a href="">CatchUp</a>
+        <div class="filterTitle">Filter Interests</div>
+        <form class="filterForm" name="MyForm">
+          <input
+            type="checkbox"
+            name="filter"
+            value="baseball"
+            class="chk-btn"
+            onclick="selectAllChecked(event);"
+          />
+          Baseball <br />
+          <input
+            type="checkbox"
+            name="filter"
+            value="cricket"
+            class="chk-btn"
+            onclick="selectAllChecked(event);"
+          />
+          Cricket <br />
+          <input
+            type="checkbox"
+            name="filter"
+            value="football"
+            class="chk-btn"
+            onclick="selectAllChecked(event);"
+          />
+          Football <br />
+          <input
+            type="checkbox"
+            name="filter"
+            value="hockey"
+            class="chk-btn"
+            onclick="selectAllChecked(event);"
+          />
+          Hockey <br />
+          <input
+            type="checkbox"
+            name="filter"
+            value="tennis"
+            class="chk-btn"
+            onclick="selectAllChecked(event);"
+          />
+          Tennis <br />
+
+          <div class="btnGr text-center">
+            <button
+              type="button"
+              class="btn btn-success joinBtn"
+              style="margin: 5vh 0 1vh;"
+              onclick="window.open('/create.html', '_self')"
+            >
+              Create an Event
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger logoutBtn"
+              style="margin: 1vh 0; padding: 1.6vh 4vw; background-color: var(--main-blue);"
+              onclick="window.open('/manage.html', '_self')"
+            >
+              Manage Event
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger logoutBtn"
+              style="margin: 1vh 0; padding: 1.6vh 5.8vw;"
+              onclick="logout();"
+            >
+              Log out
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="map"></div>
+
+    <script>
+      var markerFilter = {
+        baseball: true, 
+        cricket: true,
+        football: true,
+        hockey: true,
+        tennis: true
+      };
+      // Array of markers fetched from DB
+	  /* if we need to show all events in map start
+	  var markerFilter = {
+        cricket: true
+		... similarly for all
+      };*/
+      var markers = [
+        {
+          coords: {  lat: 42.307639, lng: -83.053829  },
+          iconImage: "./assets/images/cricketMarker.png",
+          eventToolTip: "Cricket Meetup",
+          eventName: "Cricket Meetup",
+          eventDate: "15 Dec. 2019",
+          eventTime: "Sun. 1:00pm EDT",
+          eventAddress: "South Tilston Park, Windsor, ON",
+          eventImage: "./assets/images/cricket.png",
+          eventKey: "cricket",
+          isUser: "false"
+        },
+        {
+          coords: { lat: 42.311560, lng: -83.040911 },
+          iconImage: "./assets/images/footballMarker.png",
+          eventToolTip: "Football Meetup",
+          eventName: "Football Meetup",
+          eventDate: "11 Dec. 2019",
+          eventTime: "Wed. 3:00pm EDT",
+          eventAddress: "688 Bruce Ave, Windsor",
+          eventImage: "./assets/images/football.png",
+          eventKey: "football",
+          isUser: "false"
+        },
+        {
+          coords: { lat: 42.294355, lng: -83.053636 },
+          iconImage: "./assets/images/hockeyMarker.png",
+          eventToolTip: "Hockey Meetup",
+          eventName: "Hockey Meetup",
+          eventDate: "9 Dec. 2019",
+          eventTime: "Mon. 5:00pm EDT",
+          eventAddress: "Windsor Stadium, Windsor",
+          eventImage: "./assets/images/hockey.jpg",
+          eventKey: "hockey",
+          isUser: "false"
+        },
+        {
+          coords: { lat: 42.311100, lng: -83.064711 },
+          iconImage: "./assets/images/user1.png",
+          eventToolTip: "Devang",
+          name: "Devang Shah",
+          email: "djshah@gmail.com",
+          interest: "Hockey, Football, Cricket",
+          address: "205, Randolph Pl, Windsor, ON",
+          eventImage: "./assets/images/avatar5.png",
+          eventKey: "cricket",
+          isUser: "true"
+        },
+        {
+          coords: { lat: 42.299740, lng: -83.059893 },
+          iconImage: "./assets/images/user2.png",
+          eventToolTip: "Harshit",
+          name: "Harshit Singh",
+          email: "harshitks2203@gmail.com",
+          interest: "Tennis, Football, Cricket",
+          address: "938 California Ave, Windsor, ON",
+          eventImage: "./assets/images/avatar2.png",
+          eventKey: "cricket",
+          isUser: "true"
+        },
+        {
+          coords: { lat: 42.314957, lng: -83.050610 },
+          iconImage: "./assets/images/user3.png",
+          eventToolTip: "Mayank",
+          name: "Mayank Rai",
+          email: "raiMayank007@gmail.com",
+          interest: "Tennis, Football, Cricket",
+          address: "207 Bridge Avenue, Windsor, ON",
+          eventImage: "./assets/images/avatar3.png",
+          eventKey: "cricket",
+          isUser: "true"
+        },
+        {
+          coords: { lat: 42.304357, lng: -83.072841 },
+          iconImage: "./assets/images/user4.png",
+          eventToolTip: "Snigdha",
+          name: "Snigdha Tomar",
+          email: "tomarSnigdha12@gmail.com",
+          interest: "Tennis, Hockey, Baseball",
+          address: "3010 Peter Street, Windsor, ON",
+          eventImage: "./assets/images/avatar4.png",
+          eventKey: "baseball",
+          isUser: "true"
+        },
+        {
+          coords: { lat: 42.7762, lng: -71.0773 }
+        }
+      ];
+      var options = {};
+      var map = {};
+      var mapMarkers = [];
+      function initMap() {
+        // Map options
+        options = {
+          zoom: 14,
+          center: new google.maps.LatLng(42.301945, -83.062670),
+          disableDefaultUI: true,
+          zoomControl: true,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        // New map
+        map = new google.maps.Map(document.getElementById("map"), options);
+
+        // Loop through markers
+        for (var i = 0; i < markers.length; i++) {
+          // Add marker
+          addMarker(markers[i], markerFilter);
+        }
+      }
+
+      // Add Marker Function
+      function addMarker(props, markerFilter = {}) {
+        var time = new Date();
+        var currentStamp = time.getTime();
+        console.log(currentStamp);
+        // if (!markerFilter[props.eventKey] || props.eventEndStamp < currentStamp) return; suppose eventEndStamp contains date value
+        if (!markerFilter[props.eventKey]) return; // marker will not be added if corresponding flag is false
+
+        var marker = new google.maps.Marker({
+          position: props.coords,
+          map: map,
+          tooltip: props.content || ""
+        });
+
+        // Check for customicon
+        if (props.iconImage) {
+          // Set icon image
+          marker.setIcon(props.iconImage);
+        }
+
+        // Check what is to be displayed on hover - i.e the tooltip Changed content to tooltip to avoid confusion
+        if (props.eventToolTip) {
+          var locationInfo = new google.maps.InfoWindow({
+            content: props.eventToolTip
+          });
+
+          marker.addListener("mouseover", function() {
+            locationInfo.open(map, marker);
+          });
+
+          marker.addListener("mouseout", function() {
+            locationInfo.close();
+          });
+          mapMarkers.push(marker);
+        }
+
+        // Create the modal to be associated to any specific marker
+        var modalMarkUp = `<div class="popup">
+            <div class="event-info">
+              <div class="event-image">
+                  <img src=${props.eventImage} alt=${props.eventName}  />
+              </div>
+              <div class="event-details">
+                <div class="event-name">${props.eventName}</div>
+                <div class="event-date">${props.eventDate}</div>
+                <div class="event-time">${props.eventTime}</div>
+                <div class="event-address">${props.eventAddress}</div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary join" onclick="window.open('/join.html', '_self')">Join</button>
+
+          </div>`;
+
+           var modalMarkUpUser = `<div class="popup">
+            <div class="event-info">
+              <div class="event-image">
+                  <img src=${props.eventImage} alt=${props.eventName}  />
+              </div>
+              <div class="event-details">
+                <div class="event-name">${props.name}</div>
+                <div class="event-date">${props.email}</div>
+                <div class="event-time">${props.interest}</div>
+                <div class="event-address">${props.address}</div>
+              </div>
+            </div>
+          
+          </div>`;
+        var modalInfo = new google.maps.InfoWindow({
+          content: modalMarkUp 
+        }); 
+
+        var modalInfo2 = new google.maps.InfoWindow({
+          content: modalMarkUpUser
+        });
+
+        // alert('hi');
+        console.log("1: "+`${props.isUser}`);
+        if(`${props.isUser}` == "false"){
+          console.log("isUser top: "+`${props.isUser}`);
+          marker.addListener("click", function() {
+            modalInfo.open(map, marker);
+          });
+        }
+        else {
+          console.log("isUser bot: "+`${props.isUser}`);
+          marker.addListener("click", function() {
+            modalInfo2.open(map, marker);
+          });
+        }
+
+       
+      }
+
+      function selectAllChecked(event) {
+        // Remove all previous markers
+        for (var i = 0; i < mapMarkers.length; i++) {
+          mapMarkers[i].setMap(null);
+        }
+        mapMarkers = [];
+        markerFilter[event.target.value] = event.target.checked;
+        // Loop through markers
+        for (var i = 0; i < markers.length; i++) {
+          addMarker(markers[i], markerFilter);
+        }
+      }
+
+      function clearChk() {
+        document.forms['MyForm'].reset();
+      }
+      
+    </script>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB16zKzqNY3TEOGHV6g2UHKYjPoLftIRKY&callback=initMap"
+      async
+      defer
+    ></script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+
+    <!-- <script src=”https://apis.google.com/js/platform.js" async defer></script> -->
+    <script src="./assets/js/firebase.js"></script>
+    <script src="./assets/js/google_auth.js"></script>
+  </body>
 </html>

@@ -37,31 +37,25 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 text-center greet">
-                    Hello, <span class="colorTxt">Felix Wilson</span>
+                    Hello, <span id="profName" class="colorTxt">Harshit Kumar Singh</span>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col"> 
                     <div class="text-center">
-                        <img src="./assets/images/avatar.png" class="img-fluid avatar" alt="avatar">
+                        <img src="./assets/images/avatar2.png" id="profPic" class="img-fluid avatar" alt="avatar">
                     </div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-8 form">
+                <div class="col-md-6 form">
                     <div class="form-group">
                         <div class="input-group">
-                            <i class="fas fa-map-marker-alt"></i>
+                            <i class="fas fa-map-marker-alt" style="margin: 5px 0.3em;"></i>
                             <input id="autocomplete" placeholder="Enter your address" onFocus="geolocate()" type="text">
-                            <div class="input-group-append">
-                                <button class="btn btn-secondary" type="button" onclick="geocodeLatLng();">
-                                <i class="fas fa-location-arrow"></i>
-                                </button>
-                            </div>
                         </div>
-                        <br> <p id="demo"></p>
                     </div>
                     <div class="form-group">
                             <div class="form-group">
@@ -71,12 +65,7 @@
                                     <option> Cricket </option>
                                     <option> Football </option>
                                     <option> Hockey </option>
-                                    <option> Photography </option>
-                                    <option> Swimming </option>
                                     <option> Tennis </option>
-                                    <option> Table Tennis </option>
-                                    <option> Video Gaming </option>
-                                    <option> Volleyball </option>
                                 </select>
                             </div>
                         </div>
@@ -85,51 +74,67 @@
             
             <div class="row">
                 <div class="col-12 text-center">
-                    <a href="signup.html" class="btn btn-primary conti">Continue</a>
+                    <a href="map.html" class="btn btn-primary conti">Continue</a>
                 </div>
             </div>
 
         </div>
 
 
+    
         <script type="text/javascript">
             document.addEventListener("DOMContentLoaded", function(){
                 tail.select("select", { 
                     search: true,
-                    multiLimit: 5,
+                    multiLimit: 3,
                     multiShowCount: false,
                     multiContainer: true,
 
                 });
             });
-            var x = document.getElementById("demo");
-            function geocodeLatLng() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(showPosition);
-                    } else { 
-                        x.innerHTML = "Geolocation is not supported by this browser.";
-                    }
-            }
-            function showPosition(position) {
-                x.innerHTML = "Latitude, Longitude: " + position.coords.latitude + 
-                "," + position.coords.longitude;
-            }
         </script>
 
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+    
+        <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+    
+        <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+        <script src = "./assets/js/firebase.js"></script> 
 
+        <script src="assets/js/google_auth.js"></script>
 
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChEPUdamJ4c7JKozK0g9wKhxLh3RFOpzQ&libraries=places&callback=initAutocomplete" async defer></script>  
 
         <script src="assets/js/autoComplete.js"></script>
    
+        <script>
 
+            firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                var user = firebase.auth().currentUser;
+                var name, email, photoUrl, uid, emailVerified;
+        
+                if (user != null) {
+                name = user.displayName;
+                console.log(name);
+                document.getElementById("profName").innerHTML = name;
+                email = user.email;
+                console.log(email);
+                photoUrl = user.photoURL;
+                document.getElementById("profPic").src = photoUrl;
+                emailVerified = user.emailVerified;
+                uid = user.uid; 
+                }
+            } else {
+                // No user is signed in.
+            }
+            });
+        </script>
 </body>
 </html>
